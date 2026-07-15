@@ -1,0 +1,177 @@
+/* ===== Retro-arcade neo-brutalist theme =====
+   Loaded last: layers a full re-skin on top of the existing (untouched) stylesheets
+   via the same CSS custom properties they already read, plus broad structural
+   overrides for the brutalist shapes/shadows. The 3D scene's own colors are
+   hardcoded hex in app.jsx (not CSS vars) so it is unaffected by this file, and
+   the hand-drawn blueprint SVG's line-art classes are explicitly pinned back to
+   their original values below so that view stays visually as-is too. */
+
+:root{
+  --ink:#f5f5f2;
+  --muted:#a6a6c2;
+  --navy:#0a0a12;
+  --line:#e6e6ef;
+  --blue:#00e5ff;
+  --aqua:#39ff6a;
+  --amber:#ffe600;
+  --red:#ff2e6a;
+}
+
+/* pin the blueprint technical drawing to its original palette (chrome-only reskin) */
+.bp-title{fill:#85efd4 !important}
+.bp-subtitle{fill:#9eafc5 !important}
+.bp-panel-label{fill:#9eafc5 !important}
+.bp-part{stroke:#72b5ff !important}
+.bp-line{stroke:#72b5ff !important}
+.bp-dim{stroke:#9eafc5 !important}
+.bp-dim-label{fill:#9eafc5 !important}
+.bp-legend-name{fill:#eaf1fb !important}
+.bp-legend-job{fill:#9eafc5 !important}
+
+/* ---------- background: pixel starfield + CRT scanlines ---------- */
+body{
+  background-color:var(--navy);
+  background-image:none;
+}
+
+.pixel-starfield{
+  position:fixed; inset:0; z-index:-1; pointer-events:none; overflow:hidden;
+  background:var(--navy);
+}
+.pixel-starfield i{
+  position:absolute; top:0; left:0; width:2px; height:2px; background:transparent;
+  box-shadow:663px 970px #fff, 308px 404px #fff, 1333px 49px #fff, 148px 840px #fff, 1097px 96px #fff, 748px 596px #fff, 118px 931px #fff, 1039px 219px #fff, 76px 88px #fff, 888px 428px #fff, 143px 246px #fff, 185px 564px #fff, 869px 60px #fff, 1158px 126px #fff, 457px 645px #fff, 1284px 596px #fff, 126px 590px #fff, 1199px 406px #fff, 101px 999px #fff, 452px 47px #fff, 1140px 879px #fff, 272px 296px #fff, 858px 147px #fff, 1107px 120px #fff, 1169px 315px #fff, 1147px 835px #fff, 1396px 185px #fff, 211px 595px #fff, 1169px 654px #fff, 384px 381px #fff, 199px 560px #fff, 1458px 64px #fff, 1155px 61px #fff, 1267px 210px #fff, 1016px 696px #fff, 1088px 437px #fff, 1591px 321px #fff, 953px 599px #fff, 928px 370px #fff, 613px 254px #fff, 368px 715px #fff, 1597px 249px #fff, 167px 588px #fff, 614px 537px #fff, 1013px 896px #fff, 703px 746px #fff, 919px 294px #fff, 1247px 74px #fff, 241px 524px #fff, 856px 168px #fff, 1550px 350px #fff, 311px 955px #fff, 1001px 431px #fff, 80px 985px #fff, 1368px 79px #fff, 1565px 571px #fff, 1173px 808px #fff, 642px 348px #fff, 1423px 358px #fff, 1217px 508px #fff, 1187px 816px #fff, 934px 70px #fff, 191px 967px #fff, 552px 485px #fff, 1427px 680px #fff, 133px 62px #fff, 1497px 718px #fff, 634px 662px #fff, 1183px 697px #fff, 912px 291px #fff, 1467px 395px #fff, 1369px 355px #fff, 46px 963px #fff, 945px 363px #fff, 344px 625px #fff, 239px 505px #fff, 120px 223px #fff, 1573px 294px #fff, 264px 756px #fff, 507px 407px #fff, 800px 938px #fff, 1016px 82px #fff, 340px 459px #fff, 822px 562px #fff, 569px 904px #fff, 280px 838px #fff, 881px 884px #fff, 1126px 285px #fff, 1446px 425px #fff, 734px 699px #fff;
+  animation:twinkle-a 2.6s steps(1) infinite;
+}
+.pixel-starfield b{
+  position:absolute; top:0; left:0; width:3px; height:3px; background:transparent;
+  box-shadow:779px 980px #39ff6a, 472px 154px #39ff6a, 169px 180px #39ff6a, 309px 237px #39ff6a, 1348px 238px #39ff6a, 24px 496px #39ff6a, 1206px 186px #39ff6a, 538px 288px #39ff6a, 8px 149px #39ff6a, 858px 547px #39ff6a, 756px 624px #39ff6a, 1159px 326px #39ff6a, 257px 707px #39ff6a, 1055px 973px #39ff6a, 1264px 670px #39ff6a, 1384px 757px #39ff6a, 110px 467px #39ff6a, 1597px 974px #39ff6a, 1393px 817px #39ff6a, 1145px 401px #39ff6a, 815px 408px #39ff6a, 807px 106px #39ff6a, 986px 649px #39ff6a, 820px 63px #39ff6a, 390px 68px #39ff6a, 427px 451px #39ff6a, 332px 112px #39ff6a, 696px 615px #39ff6a, 107px 104px #39ff6a, 0px 580px #39ff6a, 309px 549px #39ff6a, 207px 971px #39ff6a, 744px 628px #39ff6a, 52px 72px #39ff6a, 425px 628px #39ff6a, 770px 152px #39ff6a, 1299px 258px #39ff6a, 711px 616px #39ff6a, 745px 485px #39ff6a, 251px 118px #39ff6a, 999px 477px #39ff6a, 983px 495px #39ff6a, 638px 87px #39ff6a, 295px 104px #39ff6a, 1535px 350px #39ff6a, 1516px 271px #39ff6a, 980px 848px #39ff6a, 1417px 165px #39ff6a, 1057px 23px #39ff6a, 420px 973px #39ff6a;
+  animation:twinkle-b 4s steps(1) infinite;
+}
+@keyframes twinkle-a{0%,100%{opacity:1}50%{opacity:.35}}
+@keyframes twinkle-b{0%,100%{opacity:.7}50%{opacity:.15}}
+
+.crt-scanlines{
+  position:fixed; inset:0; z-index:80; pointer-events:none;
+  background:repeating-linear-gradient(0deg, rgba(0,0,0,.22) 0px, rgba(0,0,0,.22) 1px, transparent 1px, transparent 3px);
+  opacity:.5;
+}
+
+/* ---------- typography ---------- */
+.brand b, h1, h2{
+  font-family:"Press Start 2P", "DM Mono", monospace;
+  letter-spacing:.01em;
+  text-transform:uppercase;
+}
+h1{ font-size:clamp(22px,4vw,36px) !important; line-height:1.5 !important; }
+h2{ font-size:clamp(14px,2vw,20px) !important; line-height:1.6 !important; }
+.eyebrow{ font-family:"VT323", "DM Mono", monospace; font-size:16px !important; letter-spacing:.12em !important; }
+
+/* ---------- brutalist shapes: sharp corners + thick borders + hard shadow ---------- */
+nav, footer,
+.journey-hero, .mission-console, .systems-panel, .model-section, .failure-dock,
+.system-card, .spacecraft-popup, .spacecraft-canvas, .blueprint-wrap,
+.primary, .reset, .inject, .dock-reset{
+  border-radius:0 !important;
+}
+
+.journey-hero, .mission-console, .systems-panel, .model-section, .failure-dock, .system-card, .spacecraft-canvas, .blueprint-wrap{
+  border:3px solid var(--line) !important;
+  box-shadow:8px 8px 0 var(--blue) !important;
+  background-color:#101018 !important;
+}
+
+.spacecraft-popup{
+  border:3px solid var(--line) !important;
+  box-shadow:10px 10px 0 var(--red) !important;
+  background:#101018 !important;
+}
+
+nav{ border-bottom:3px solid var(--line) !important; }
+footer{ border-top:3px solid var(--line) !important; font-family:"VT323",monospace; font-size:15px; letter-spacing:.02em; }
+
+.primary, .reset, .inject, .dock-reset{
+  border:3px solid var(--line) !important;
+  box-shadow:5px 5px 0 var(--ink) !important;
+  transition:transform .08s, box-shadow .08s !important;
+}
+.primary:active, .reset:active, .inject:active, .dock-reset:active,
+.primary:not(:disabled):hover, .reset:hover, .inject:not(:disabled):hover, .dock-reset:hover{
+  transform:translate(3px,3px);
+  box-shadow:2px 2px 0 var(--ink) !important;
+}
+
+.view-toggle button.active, .mode-toggle button.active{
+  font-weight:800;
+}
+
+.journey-status::after{
+  content:"\2588"; margin-left:6px; color:var(--aqua);
+  animation:blink 1s steps(2) infinite;
+}
+@keyframes blink{50%{opacity:0}}
+
+.system-card.selected{ border-color:var(--blue) !important; box-shadow:6px 6px 0 var(--blue) !important; }
+.system-card.affected{ border-color:var(--amber) !important; box-shadow:6px 6px 0 var(--red) !important; }
+
+/* ---------- glitch hover on primary interactive buttons ---------- */
+.primary:not(:disabled):hover, .inject:not(:disabled):hover, .view-toggle button:hover, .mode-toggle button:hover{
+  animation:glitch .35s steps(2) 1;
+}
+@keyframes glitch{
+  0%{ text-shadow:2px 0 var(--red), -2px 0 var(--blue); }
+  50%{ text-shadow:-2px 0 var(--red), 2px 0 var(--blue); }
+  100%{ text-shadow:0 0 transparent; }
+}
+
+.systems-map{
+  grid-column:1/-1;
+  margin-top:24px;
+  padding-top:20px;
+  border-top:3px solid var(--line);
+}
+.systems-map-svg{ width:100%; height:auto; max-height:360px; display:block; margin-top:10px; }
+.sm-tier-label{ fill:var(--muted); font:600 12px "VT323",monospace; letter-spacing:.14em; }
+.sm-flow-arrow{ stroke:var(--blue); color:var(--blue); stroke-width:2.5; }
+.sm-flow-label{ fill:var(--muted); font:12px "VT323",monospace; letter-spacing:.05em; }
+.sm-feedback-arrow{ fill:none; stroke:var(--aqua); color:var(--aqua); stroke-width:2; stroke-dasharray:5 4; }
+.sm-feedback-label{ fill:var(--aqua); font:12px "VT323",monospace; letter-spacing:.05em; }
+.sm-node-icon{ font-size:26px; }
+.sm-node-name{ fill:var(--ink); font:700 12px Manrope,sans-serif; }
+.systems-map-caption{ margin-top:6px; color:var(--muted); font-size:12px; line-height:1.6; }
+
+.resilience-stats{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-top:10px;
+}
+.resilience-stats article{ border-left:3px solid var(--aqua); padding-left:13px; }
+.resilience-stats article b{
+  display:block; color:var(--ink); font:700 19px "DM Mono",monospace; margin-bottom:4px;
+}
+.resilience-stats article span{ display:block; color:var(--muted); font-size:12px; line-height:1.4; }
+@media (max-width:860px){
+  .resilience-stats{grid-template-columns:repeat(2,1fr)}
+}
+
+.recovery-lesson{
+  margin-top:10px; padding-top:10px; border-top:2px dashed var(--aqua);
+  color:var(--aqua); font-size:12px; line-height:1.5;
+}
+
+.drawing-stamp{
+  display:inline-flex;
+  align-items:center;
+  white-space:nowrap;
+  margin-left:14px;
+  padding:5px 10px;
+  border:2px solid var(--amber);
+  color:var(--amber);
+  font:12px "VT323", monospace;
+  letter-spacing:.06em;
+}
+@media (max-width:640px){
+  .drawing-stamp{display:none}
+}

@@ -1,0 +1,51 @@
+.view-toggle{display:flex;gap:6px;background:rgba(114,181,255,.08);border:1px solid var(--line);border-radius:999px;padding:4px}
+.view-toggle button{background:transparent;border:none;color:var(--muted);font:600 12px/1 "DM Mono",monospace;letter-spacing:.04em;padding:8px 16px;border-radius:999px;cursor:pointer}
+.view-toggle button.active{background:var(--blue);color:#07111f}
+
+.spacecraft-view{position:relative;padding:16px 24px 32px}
+.spacecraft-modebar{display:flex;align-items:center;gap:16px;margin:0 0 10px;flex-wrap:wrap}
+.mode-toggle{display:flex;gap:4px;background:rgba(114,181,255,.08);border:1px solid var(--line);border-radius:999px;padding:3px}
+.mode-toggle button{background:transparent;border:none;color:var(--muted);font:600 11px/1 "DM Mono",monospace;letter-spacing:.04em;padding:7px 14px;border-radius:999px;cursor:pointer}
+.mode-toggle button.active{background:var(--blue);color:#07111f}
+.spacecraft-hint{color:var(--muted);font:500 12px/1 "DM Mono",monospace;letter-spacing:.03em;text-transform:uppercase;margin:0}
+.spacecraft-canvas{width:100%;height:min(62vh,560px);border:1px solid var(--line);border-radius:16px;overflow:hidden;background:radial-gradient(circle at 50% 30%,#0c2338,#05101c);cursor:grab}
+.spacecraft-canvas:active{cursor:grabbing}
+.spacecraft-canvas canvas{display:block}
+
+.blueprint-wrap{width:100%;height:min(62vh,560px);border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#081c2c;padding:8px;box-sizing:border-box}
+.blueprint-svg{width:100%;height:100%;display:block}
+.bp-frame{fill:none;stroke:rgba(133,239,212,.35);stroke-width:1.5}
+.bp-ticks path{stroke:rgba(133,239,212,.55);stroke-width:1.5;fill:none}
+.bp-title{fill:var(--aqua);font:700 15px "DM Mono",monospace;letter-spacing:.04em}
+.bp-subtitle{fill:var(--muted);font:500 10px "DM Mono",monospace;letter-spacing:.03em}
+.bp-panel-label{fill:var(--muted);font:600 11px "DM Mono",monospace;letter-spacing:.08em}
+.bp-panel-border{fill:none;stroke:rgba(114,181,255,.25);stroke-width:1;stroke-dasharray:4 3}
+.bp-part{fill:rgba(114,181,255,.1);stroke:var(--blue);stroke-width:1.4}
+.bp-line{stroke:var(--blue);stroke-width:1.4}
+.bp-dash{stroke:rgba(114,181,255,.6);stroke-width:1;stroke-dasharray:3 3}
+.bp-hatch{stroke:rgba(114,181,255,.5);stroke-width:1}
+.bp-dashed-circle{fill:none;stroke:rgba(114,181,255,.45);stroke-width:1;stroke-dasharray:3 3}
+.bp-dim{stroke:var(--muted);stroke-width:1}
+.bp-dim-label{fill:var(--muted);font:600 9px "DM Mono",monospace;letter-spacing:.06em}
+.bp-callout{cursor:pointer}
+.bp-callout circle,.bp-legend-row circle{fill-opacity:.85}
+.bp-leader{stroke:rgba(234,241,251,.4);stroke-width:1;stroke-dasharray:2 2}
+.bp-callout-num{fill:#07111f;font:700 12px "DM Mono",monospace}
+.bp-legend-row{cursor:pointer}
+.bp-legend-name{fill:var(--ink);font:600 12px Manrope,sans-serif}
+.bp-legend-job{fill:var(--muted);font:500 10px Manrope,sans-serif}
+
+.spacecraft-popup-backdrop{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(4,10,18,.55);border-radius:16px}
+.spacecraft-popup{position:relative;max-width:440px;max-height:80%;overflow-y:auto;width:calc(100% - 48px);background:#0a1c2e;border:1px solid var(--line);border-radius:14px;padding:26px 28px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.spacecraft-popup .popup-icon{font-size:28px;color:var(--blue)}
+.spacecraft-popup h3{margin:8px 0 14px;color:var(--ink);font-size:20px}
+.spacecraft-popup p{margin:0 0 12px;color:var(--muted);font-size:14px;line-height:1.5}
+.spacecraft-popup p b{color:var(--ink)}
+.spacecraft-popup .popup-safeguard b{color:var(--aqua)}
+.spacecraft-popup .popup-loss b{color:var(--red)}
+.popup-instruments{list-style:none;margin:0 0 12px;padding:0;border-top:1px dashed var(--line);padding-top:10px}
+.popup-instruments li{color:var(--muted);font-size:12px;line-height:1.5;margin:0 0 6px}
+.popup-instruments li b{color:var(--ink)}
+.popup-instruments li span{display:block;font-size:11px;color:var(--muted);opacity:.8}
+.popup-close{position:absolute;top:14px;right:14px;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer;font-size:14px;line-height:1}
+.popup-close:hover{color:var(--ink);border-color:var(--blue)}
